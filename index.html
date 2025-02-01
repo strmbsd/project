@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Projects</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="2048.css">
+    <link rel="stylesheet" href="snake.css">
+    <link rel="stylesheet" href="cpg.css">
+    <link rel="stylesheet" href="typing-speed-test.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+        <div class="container">
+            <a class="navbar-brand" href="#" onclick="showPage('homePage')">Interactive Projects</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="projectsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Projects
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="projectsDropdown">
+                            <li>
+                                <a class="dropdown-item" href="#" onclick="showPage('2048Game')">
+                                    2048 Game
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#" onclick="showPage('snakeGame')">
+                                    Snake Game
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#" onclick="showPage('colorPaletteGenerator')">
+                                    Color Palette Generator
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#" onclick="showPage('typingSpeedTest')">
+                                    Typing Speed Test
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div id="mainContent">
+        <!-- Game Over Modal -->
+        <div class="game-modal-overlay" id="gameOverModal">
+            <div class="game-modal">
+                <h3 id="gameOverTitle">Game Over!</h3>
+                <div class="final-score">Score: <span id="finalScore">0</span></div>
+                <button class="btn btn-primary" onclick="restartGame()">Play Again</button>
+            </div>
+        </div>
+
+        <!-- Back Button (Global) -->
+        <button class="btn btn-secondary back-button" onclick="showPage('homePage')">
+            <i class="fas fa-arrow-left"></i> Back
+        </button>
+
+        <!-- Home Page -->
+        <section id="homePage" class="page-section active">
+            <header class="text-center py-5">
+                <h1 class="display-4">Explore Fun & Interactive Projects</h1>
+                <p class="lead">Try out my mini web-based projects for fun and learning</p>
+            </header>
+            
+            <section id="projects" class="container my-5">
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="project-card" onclick="showPage('2048Game')">
+                            <h3>2048 Game</h3>
+                            <p>Join the numbers and get to the 2048 tile!</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="project-card" onclick="showPage('snakeGame')">
+                            <h3>Snake Game</h3>
+                            <p>Classic snake game with smooth animations!</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="project-card" onclick="showPage('colorPaletteGenerator')">
+                            <h3>Color Palette Generator</h3>
+                            <p>Create and customize your own color palettes!</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="project-card" onclick="showPage('typingSpeedTest')">
+                            <h3>Typing Speed Test</h3>
+                            <p>Test and improve your typing speed and accuracy!</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="project-card" onclick="showPage('wordleGame')">
+                            <h3>Coming Soon</h3>
+                            <p>More projects coming soon!</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <div class="version">v0.4.8</div>
+        </section>
+
+        <!-- 2048 Game Page -->
+        <section id="2048Game" class="page-section">
+            <div class="game-wrapper">
+                <h2>2048 Game</h2>
+                <div class="score-container">
+                    Score: <span id="score">0</span>
+                </div>
+                <div class="game-container">
+                    <div class="game-grid" id="gameGrid"></div>
+                </div>
+                <button class="btn btn-primary mt-3" onclick="newGame()">New Game</button>
+            </div>
+        </section>
+
+        <!-- Snake Game Page -->
+        <section id="snakeGame" class="page-section">
+            <div class="snake-wrapper">
+                <h2>Snake Game</h2>
+                <div class="snake-score">
+                    Score: <span id="snakeScore">0</span>
+                </div>
+                <div class="snake-container" id="snakeContainer"></div>
+                <button class="btn btn-primary mt-3" onclick="startSnakeGame()">New Game</button>
+            </div>
+        </section>
+
+        <!-- Color Palette  Page-->
+        <section id="colorPaletteGenerator" class="page-section">
+            <div class="color-palette-wrapper">
+                <h2>Color Palette Generator</h2>
+                <div class="color-palette-container">
+                    <div class="color-grid" id="colorGrid">
+                        <!-- Color boxes and hex codes will be dynamically added here -->
+                    </div>
+                    <button class="btn btn-primary mt-3" onclick="generatePalette()">Generate New Palette</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typing Speed Test Section -->
+        <section id="typingSpeedTest" class="page-section">
+            <div class="typing-test-wrapper">
+                <h2>Typing Speed Test</h2>
+                <div class="test-box">
+                    <div class="prompt" id="prompt">
+                        Press 'Start Test' to begin!
+                    </div>
+                    <textarea id="input" disabled></textarea>
+                    <div class="timer" id="timer">Seconds: 0.0</div>
+                    <button class="start-btn" id="start-btn">Start Test</button>
+                </div>
+                <div class="results" id="results">
+                    <p>Words Per Minute: <span id="wpm">0</span></p>
+                    <p>Accuracy: <span id="accuracy">0%</span></p>
+                    <button class="restart-btn" id="restart-btn">Restart Test</button>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer id="contact" class="text-center py-4">
+        <p>Made for fun | Not for commercial use</p>
+    </footer>
+    
+
+    <script src="main.js"></script>
+    <script src="2048.js"></script>
+    <script src="snake.js"></script>
+    <script src="cpg.js"></script>
+    <script src="typing-speed-test.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

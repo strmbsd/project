@@ -1,0 +1,41 @@
+/* Snake Game Styles */
+.snake-wrapper {
+    background-color: #1E1E1E;
+    border-radius: 20px;
+    padding: 20px;
+    width: 65vh;  /* Reduced from 80vh to 70vh */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.snake-container {
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: #333;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.snake-segment {
+    width: 20px;
+    height: 20px;
+    background-color: #4CAF50;
+    position: absolute;
+    border-radius: 10px;
+    transition: all 0.1s linear;
+}
+
+.snake-food {
+    width: 20px;
+    height: 20px;
+    background-color: #f44336;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.snake-score {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 24px;
+}

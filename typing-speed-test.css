@@ -1,0 +1,107 @@
+/* Typing Speed Test Styles */
+.typing-test-wrapper {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1E1E1E;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.typing-test-wrapper h2 {
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.test-box {
+    margin: 20px 0;
+}
+
+.prompt {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    background: #2C2C2C;
+    padding: 1rem;
+    border-radius: 5px;
+    color: white;
+}
+
+.correct {
+    color: #4CAF50; /* Green for correct characters */
+}
+
+.incorrect {
+    color: #F44336; /* Red for incorrect characters */
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border: none;
+    resize: none;
+    outline: none;
+    background: #333;
+    color: white;
+}
+
+.timer {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.start-btn, .restart-btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    background-color: #4CAF50; /* Green for buttons */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.start-btn:hover, .restart-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.results {
+    display: none;
+    margin-top: 20px;
+}
+
+.results p {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    color: white;
+}
+
+.restart-btn {
+    margin-top: 1rem;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Initially hidden */
+.hidden {
+    opacity: 0;
+}
+
+/* Apply fade-in effect */
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
